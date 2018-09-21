@@ -1,0 +1,4 @@
+#Fri Sep 21 17:14:11 CDT 2018
+base.0=/Users/josephat.reyes/Desktop/react-native/Ejercicio/EXCE/platforms/android/app/build/intermediates/transforms/dexMerger/debug/6
+renamed.0=classes.dex
+file.0=/Users/josephat.reyes/Desktop/react-native/Ejercicio/EXCE/platforms/android/app/build/intermediates/transforms/dexMerger/debug/6/classes.dex

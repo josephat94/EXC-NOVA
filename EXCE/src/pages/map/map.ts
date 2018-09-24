@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { COLORSMAPS } from './MapTheme';
 import { MapsProvider } from '../../providers/maps/maps';
@@ -36,11 +36,20 @@ lang="eng";
 
 directionsService:any;
 @ViewChild('map') mapElement: ElementRef;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation, private _MapService: MapsProvider, private http: HTTP, private modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,public platform: Platform, public navParams: NavParams, private geolocation: Geolocation, private _MapService: MapsProvider, private http: HTTP, private modalCtrl: ModalController) {
   
+
+
   this._MapService.getLang().then((res:any)=>{
   this.lang=res;
   })
+
+
+  platform.registerBackButtonAction(() => {
+    //sometimes the best thing you can do is not think, not wonder, not imagine, not obsess. 
+    //just breathe, and have faith that everything will work out for the best.
+  },1);
+
   }
 
   ionViewDidLoad() {

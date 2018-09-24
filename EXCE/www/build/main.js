@@ -913,9 +913,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MapPage = /** @class */ (function () {
-    function MapPage(navCtrl, navParams, geolocation, _MapService, http, modalCtrl) {
+    function MapPage(navCtrl, platform, navParams, geolocation, _MapService, http, modalCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
+        this.platform = platform;
         this.navParams = navParams;
         this.geolocation = geolocation;
         this._MapService = _MapService;
@@ -931,6 +932,10 @@ var MapPage = /** @class */ (function () {
         this._MapService.getLang().then(function (res) {
             _this.lang = res;
         });
+        platform.registerBackButtonAction(function () {
+            //sometimes the best thing you can do is not think, not wonder, not imagine, not obsess. 
+            //just breathe, and have faith that everything will work out for the best.
+        }, 1);
     }
     MapPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -1157,7 +1162,7 @@ var MapPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-map',template:/*ion-inline-start:"/Users/josephat.reyes/Documents/GitHub/EXC-NOVA/EXCE/src/pages/map/map.html"*/'<!--\n  Generated template for the MapPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>{{lang==\'esp\'?\'Mapa\':\'Map\'}}</ion-title>\n    <ion-buttons right>\n\n  <button ion-button icon-only (click)="goSettings()">\n            <ion-icon name="settings"></ion-icon>\n        </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content class="animate-left" >\n    <div #map id="map">\n     </div>\n\n   \n    <div *ngIf="!ismapLoaded" class="loader-map" >\n        <ion-spinner></ion-spinner>\n        {{lang==\'esp\'?\'Cargando Mapa\':\'Loading Map\'}}\n    </div>\n\n     <ion-row>\n\n  <ion-col class="flex-center">\n      <button class="animate" ion-button color="primary" (click)="centrar()"> {{lang==\'esp\'?\'Mi posición\':\'My Position\'}}</button>\n\n  </ion-col>  \n  <ion-col *ngIf="hasRoute" class="flex-center">\n      <button  class="animate" ion-button color="danger" (click)="limparRuta()">{{lang==\'esp\'?\'Borrar Ruta\':\'Delete Route\'}} </button>\n\n  </ion-col>   \n     </ion-row>\n   \n</ion-content>\n'/*ion-inline-end:"/Users/josephat.reyes/Documents/GitHub/EXC-NOVA/EXCE/src/pages/map/map.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */], __WEBPACK_IMPORTED_MODULE_4__providers_maps_maps__["a" /* MapsProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__["a" /* HTTP */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */], __WEBPACK_IMPORTED_MODULE_4__providers_maps_maps__["a" /* MapsProvider */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_http__["a" /* HTTP */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], MapPage);
     return MapPage;
 }());

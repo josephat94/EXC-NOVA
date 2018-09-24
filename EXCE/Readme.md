@@ -1,4 +1,4 @@
-#Maps Application
+# Maps Application
 
 Hi there this is an app made with Ionic and Angular That app show a Map with Google Maps api and trace the route between the device and the objective, that app can be set 2 different langages (english and spanish). The app show a custom splash in your language The app can be installed in androud if you need to run the proyect you need to run the command npm i and after ionic serve if you need to run in your device you need to run ionic cordova platform add android and after ionic cordova build android
 

@@ -141,7 +141,7 @@ goSettings(){
 
 get100(parametros:Parametros){
 
-  this.http.post("https://dev.dominio-mobile.tk:443/c735_015_middlewareq1/MWServlet?appID=Demo&appver=21.0.0&platformver=21.0.0&platform=Android&lang="+parametros.lang+"&channel=rc&serviceID=getNearBranches&lat="+parametros.lat+"&lng="+parametros.lng+"&radio=10&officeTypeId="+parametros.officeTypeId, {}, {})
+  this.http.post("https://dev.dominio-mobile.tk:443/c735_015_middlewareq1/MWServlet?appID=Demo&appver=21.0.0&platformver=21.0.0&platform=Android&lang="+parametros.lang+"&channel=rc&serviceID=getNearBranches&lat="+parametros.lat+"&lng="+parametros.lng+"&radio=2&officeTypeId="+parametros.officeTypeId, {}, {})
   .then((data:any) => {
     let res= JSON.parse(data.data);
     this.Arre100= res.BranchesData;
@@ -154,7 +154,7 @@ get100(parametros:Parametros){
     console.log(data.headers);
 
 parametros.officeTypeId=""+300;
-    this.http.post("https://dev.dominio-mobile.tk:443/c735_015_middlewareq1/MWServlet?appID=Demo&appver=21.0.0&platformver=21.0.0&platform=Android&lang="+parametros.lang+"&channel=rc&serviceID=getNearBranches&lat="+parametros.lat+"&lng="+parametros.lng+"&radio=10&officeTypeId="+parametros.officeTypeId, {}, {})
+    this.http.post("https://dev.dominio-mobile.tk:443/c735_015_middlewareq1/MWServlet?appID=Demo&appver=21.0.0&platformver=21.0.0&platform=Android&lang="+parametros.lang+"&channel=rc&serviceID=getNearBranches&lat="+parametros.lat+"&lng="+parametros.lng+"&radio=2&officeTypeId="+parametros.officeTypeId, {}, {})
     .then((data:any) => {
       let res2= JSON.parse(data.data);
       this.Arre300= res2.BranchesData;
@@ -166,7 +166,7 @@ parametros.officeTypeId=""+300;
 
 
       parametros.officeTypeId=""+400;
-      this.http.post("https://dev.dominio-mobile.tk:443/c735_015_middlewareq1/MWServlet?appID=Demo&appver=21.0.0&platformver=21.0.0&platform=Android&lang="+parametros.lang+"&channel=rc&serviceID=getNearBranches&lat="+parametros.lat+"&lng="+parametros.lng+"&radio=10&officeTypeId="+parametros.officeTypeId, {}, {})
+      this.http.post("https://dev.dominio-mobile.tk:443/c735_015_middlewareq1/MWServlet?appID=Demo&appver=21.0.0&platformver=21.0.0&platform=Android&lang="+parametros.lang+"&channel=rc&serviceID=getNearBranches&lat="+parametros.lat+"&lng="+parametros.lng+"&radio=2&officeTypeId="+parametros.officeTypeId, {}, {})
       .then((data:any) => {
         let res3= JSON.parse(data.data);
       this.Arre400= res3.BranchesData;

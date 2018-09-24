@@ -1,10 +1,14 @@
 
 
 <div *ngIf="SplashScreen"  class="splash">
-    
+              
 <div class="title-splash animate-opacity    ">
-{{title}}
+{{lang=='esp'?'Mapas':'Maps'}}
 </div>
+
+<div class="subtitle-splash">
+                {{lang=='esp'?'Por Josephat Reyes':'By Josephat Reyes'}}    
+</div>  
 
 <div class="esquina">
         <div class="sk-folding-cube">

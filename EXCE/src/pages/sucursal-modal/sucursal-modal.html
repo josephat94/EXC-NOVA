@@ -1,0 +1,122 @@
+<!--
+  Generated template for the SucursalModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons left>
+          <button ion-button icon-only (click)="regresar()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+
+  
+    <ion-title>{{lang=='esp'?'Detalle Sucursal': ' branch office Detail'}}l</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-card>
+    <img src="./assets/imgs/banamex.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{Sucursal.name}}
+        </ion-card-title>
+        <ion-grid *ngIf="Sucursal.address">
+          <ion-row>
+            <ion-col class="Sucur-header">
+                {{lang=='esp'?'Dirección': 'Address'}}
+            </ion-col>
+          </ion-row>
+        
+          <ion-row>
+            <ion-col>
+              {{Sucursal.address}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid *ngIf="Sucursal['id ']">
+          <ion-row>
+            <ion-col class="Sucur-header">
+              ID
+            </ion-col>
+          </ion-row>
+        
+          <ion-row>
+            <ion-col>
+              {{Sucursal['id ']}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+        <ion-grid *ngIf="phone">
+          <ion-row>
+            <ion-col class="Sucur-header">
+                {{lang=='esp'?'Teléfonos':   'Phones'}}
+            </ion-col>
+          </ion-row>
+        
+          <ion-row *ngFor="let phone of phones; let i= index">
+            <ion-col>
+              {{phone}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+
+        <ion-grid *ngIf="Sucursal.distance">
+          <ion-row>
+            <ion-col class="Sucur-header">
+                {{lang=='esp'?'Distancia':   'Distance'}} 
+            </ion-col>
+          </ion-row>
+        
+          <ion-row >
+            <ion-col>
+              {{Sucursal.distance}}
+            </ion-col>
+          </ion-row>
+
+         
+        </ion-grid>
+        
+
+        <ion-grid *ngIf="Sucursal.bilingual">
+          <ion-row>
+            <ion-col class="Sucur-header">
+                {{lang=='esp'?'Bilingue':   'Bilingual'}} 
+              
+            </ion-col>
+          </ion-row>
+        
+          <ion-row >
+            <ion-col *ngIf="lang!='esp'"> 
+              {{Sucursal.bilingual?'Yes':'Not'}}
+            </ion-col>
+            <ion-col *ngIf="lang=='esp'"> 
+                {{Sucursal.bilingual?'Si':'No'}}
+              </ion-col>
+          </ion-row>
+
+         
+        </ion-grid>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row >
+      <ion-col>
+<button ion-button color="primary" block (click)="trazarRuta()">{{lang=='esp'?'Trazar Ruta':'Trace Route'}}</button>
+      </ion-col>
+    </ion-row>
+
+</ion-content>

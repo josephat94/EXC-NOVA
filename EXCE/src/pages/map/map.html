@@ -7,11 +7,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Map</ion-title>
+
+    <ion-title>{{lang=='esp'?'Mapa':'Map'}}</ion-title>
+    <ion-buttons right>
+
+  <button ion-button icon-only (click)="goSettings()">
+            <ion-icon name="settings"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content >
+<ion-content class="animate-left" >
     <div #map id="map">
      </div>
-     <button ion-button color="primary" (click)="centrar()"> Mi posición</button>
+
+   
+    <div *ngIf="!ismapLoaded" class="loader-map" >
+        <ion-spinner></ion-spinner>
+        {{lang=='esp'?'Cargando Mapa':'Loading Map'}}
+    </div>
+
+     <ion-row>
+
+  <ion-col class="flex-center">
+      <button class="animate" ion-button color="primary" (click)="centrar()"> {{lang=='esp'?'Mi posición':'My Position'}}</button>
+
+  </ion-col>  
+  <ion-col *ngIf="hasRoute" class="flex-center">
+      <button  class="animate" ion-button color="danger" (click)="limparRuta()">{{lang=='esp'?'Borrar Ruta':'Delete Route'}} </button>
+
+  </ion-col>   
+     </ion-row>
+   
 </ion-content>

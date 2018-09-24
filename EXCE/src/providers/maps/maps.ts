@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Parametros } from '../../app/Parametros';
 import { Observable } from 'rxjs';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the MapsProvider provider.
@@ -12,8 +13,8 @@ import { Observable } from 'rxjs';
 */
 @Injectable()
 export class MapsProvider {
-
-  constructor(public http: Http, public httClient: HttpClient) {
+  islangchange=false;
+  constructor(public http: Http, public httClient: HttpClient, public storage: Storage) {
     console.log('Hello MapsProvider Provider');
   }
 
@@ -32,5 +33,36 @@ export class MapsProvider {
     .map(data =>data)
     // .map((products: Response) => products.json())
     .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
+  }
+
+  setLang(lang){
+this.islangchange=lang;
+
+  }
+  getlangcha(){
+return this.islangchange;    
+  }
+  getLang(){
+
+    let Prom = new Promise((resolve, reject)=>{
+
+      this.storage.get('lang').then((val) => {
+        console.log('Your lang is->', val);
+    let res=val;
+        if(val){
+          
+    
+        }else{
+ res='eng';
+        }
+        resolve(res);
+
+      }).catch(e=>{reject(e)})
+      
+    })
+
+
+    return Prom;
+
   }
 }

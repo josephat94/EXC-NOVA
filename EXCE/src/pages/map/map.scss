@@ -8,4 +8,25 @@ page-map {
     //    background: rgba(222, 184, 135, 0.467);
         ;
       }
+
+      .loader-map{
+        position: absolute;
+        z-index: 600;
+        width: 100%;
+        height: 80vh;
+        top: 0vh;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        flex-direction: column;
+        ion-spinner * {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill:transparent;
+          }
+      }
+   
 }
